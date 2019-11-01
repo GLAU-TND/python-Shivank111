@@ -1,0 +1,17 @@
+n = int(input())
+for i in range(n):
+    test_cases = int(input())
+
+
+def rounds_until_one(coins):
+    if coins < 1:
+        return None
+    if coins == 1:
+        return 1
+    round_number = rounds_until_one(coins // 2) + 1
+    print(" {0} coins on round {1}".format(coins, round_number))
+    return round_number
+
+
+for test in test_cases:
+    print("It took {0} rounds to change {1} coins into 1".format(rounds_until_one(test), test))
